@@ -8,10 +8,10 @@ This is alpha quality.
 
 ## Features
 
-- grad-ascent linear-reg
+- grad-ascent logistic-reg
 - naive k-nn
 
-## License
+p## License
 
 Copyright (C) 2011 Federico Brubacher
 
