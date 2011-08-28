@@ -20,14 +20,15 @@
         nbr-cols (icore/ncol my-matrix)
         alpha 0.001
         weights (atom (icore/matrix 1 nbr-cols 1))]
-    (doall (for [max-cycles (range 500)]       
-             (let [h (create-sigmoid (icore/mmult my-matrix @weights))
-                   error (icore/minus label-mat h)]
-               (swap! weights (fn [weights]
-                                (icore/plus weights
-                                            (icore/mult alpha
-                                                        (icore/mmult
-                                                         (icore/trans my-matrix) error))))))))
+    (doall
+     (for [max-cycles (range 500)]       
+       (let [h (create-sigmoid (icore/mmult my-matrix @weights))
+             error (icore/minus label-mat h)]
+         (swap! weights (fn [weights]
+                          (icore/plus weights
+                                      (icore/mult alpha
+                                                  (icore/mmult
+                                                   (icore/trans my-matrix) error))))))))
     @weights))
 
 (defn ridge-regression
